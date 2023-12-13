@@ -1,42 +1,49 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IBook } from "../interfaces/books";
-import { apiSlice } from "../utils/books-api-slice";
 
 type TBooksState = {
   books: IBook[],
   query: string,
-  displayAmount: number
+  startIndex: number,
+  maxResults: number,
+  categories: string,
+  orderBy: string
 };
 
 const initialState: TBooksState = {
   books: [],
   query: '',
-  displayAmount: 30
+  startIndex: 0,
+  maxResults: 30,
+  categories: 'All',
+  orderBy: ''
 }
 
 const booksReducer = createSlice({
   name: 'BooksReducer',
   initialState,
   reducers: {
-    getBooks(state, action) {
-
+    getBooks(state, action: PayloadAction<IBook[]>) {
+      state.books = action.payload
     },
     setQuery(state, action: PayloadAction<string>) {
       state.query = action.payload
     },
+    setStartIndex(state, action: PayloadAction<number>) {
+      state.startIndex = action.payload;
+    },
     setDisplayAmount(state, action: PayloadAction<number>) {
-      state.displayAmount = action.payload;
-    }
+      state.maxResults = action.payload;
+    },
+    setCategory(state, action: PayloadAction<string>) {
+      state.categories = action.payload;
+      state.startIndex = 0;
+    },
+    setSorting(state, action: PayloadAction<string>) {
+      state.orderBy = action.payload;
+    },
+    clearBooks: () => initialState
   }
-  /*
-  extraReducers: (builder) => {
-    builder
-    .addCase(apiSlice.fulfilled, (state, action) => {
-      state.items = [...state.items, ...action.payload.items];
-      state.totalItems = action.payload.totalItems;
-    })
-  }
-  */
 })
 
 export const actions = booksReducer.actions;

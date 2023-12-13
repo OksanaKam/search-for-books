@@ -8,6 +8,7 @@ interface IProps {
 }
 
 const BooksCardList: FC<IProps> = ({ books }) => {
+
   return (
     <section className="book-list">
       <ul className="book-list__container">

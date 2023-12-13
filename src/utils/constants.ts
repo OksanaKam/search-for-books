@@ -9,41 +9,41 @@ export const ERROR_TEXT = {
 export const CATEGORIES = [
   {
     id: 1,
-    category: 'all'
+    category: 'All'
   },
   {
     id: 2,
-    category: 'art'
+    category: 'Art'
   },
   {
     id: 3,
-    category: 'biography'
+    category: 'Biography'
   },
   {
     id: 4,
-    category: 'computers'
+    category: 'Computers'
   },
   {
     id: 5,
-    category: 'history'
+    category: 'History'
   },
   {
     id: 6,
-    category: 'medical'
+    category: 'Medical'
   },
   {
     id: 7,
-    category: 'poetry'
+    category: 'Poetry'
   }
 ]
 
 export const SORTING = [
   {
     id: 1,
-    category: 'relevance '
+    category: 'relevance'
   },
   {
     id: 2,
-    category: 'newes'
+    category: 'newest'
   }
 ]

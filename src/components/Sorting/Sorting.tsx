@@ -1,15 +1,24 @@
-import React, { FC } from "react";
+import React from "react";
 import "./Sorting.css";
 import { SORTING } from "../../utils/constants";
 
-
-const Sorting: FC = () => {
+const Sorting = ({ onChange }) => {
   return (
     <form className="sorting">
       <label className="sorting__title" htmlFor="categories">Sorting by</label>
-      <select className="sorting__select" name="categories" id="categories">
+      <select
+        className="sorting__select"
+        name="sorting"
+        id="sorting"
+        onChange={onChange}
+      >
       {SORTING.map((sort) => (
-        <option key={sort.id} value={sort.category}>{sort.category}</option>
+        <option
+          key={sort.id}
+          value={sort.category}
+        >
+          {sort.category}
+        </option>
       ))}
       </select>
     </form>

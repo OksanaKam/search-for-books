@@ -20,13 +20,12 @@ export interface IBooksApi {
   items: IBook[];
 }
 
-export interface BooksState {
-  items: Book[];
-  totalItems: null
-}
-
 export type TBooksArgs = {
   query?: string;
+  categories: string,
+  orderBy: string;
+  startIndex: number;
+  maxResults: number;
 }
 
 export interface Books {

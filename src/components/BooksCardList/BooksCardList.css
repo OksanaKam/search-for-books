@@ -6,13 +6,13 @@
 
 .book-list__container {
   display: grid;
-  justify-content: center;
+  justify-content: space-between;
   grid-template-columns: repeat(auto-fill, minmax(auto, 218px));
   max-width: 1140px;
+  width: 100%;
   margin: 30px auto 0;
   padding: 0;
   row-gap: 32px;
-  column-gap: 35px;
   box-sizing: border-box;
   list-style: none;
 }

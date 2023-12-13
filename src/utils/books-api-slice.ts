@@ -11,8 +11,12 @@ export const apiSlice = createApi({
       query: (args) => ({
         url: '/volumes',
         params: {
-          q: args.query,
-          maxResults: 30
+          q: args.query +(args.categories !== 'All' ? `+subject:${args.categories}` : ''),
+          /*q: args.query + (args.categories === 'all' ? '' : `+subject:${args.categories}`),*/
+          /*subject: args.categories !== 'All' ? `+subject:${args.categories}` : '',*/
+          orderBy: args.orderBy,
+          startIndex: args.startIndex,
+          maxResults: args.maxResults
           /*key: API_Key*/
         }
       })
